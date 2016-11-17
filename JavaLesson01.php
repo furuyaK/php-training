@@ -29,7 +29,7 @@
 			return true;
 		}
 		// 3‚ª‚Â‚­(•¶š—ñ‚É3‚ğŠÜ‚Ş)’l‚Ìê‡
-		else if (strpos($num,"3") === true) {
+		else if (strpos($num,"3") !== false) {
 			return true;
 		}
 		// ã‹LˆÈŠO‚Ìê‡

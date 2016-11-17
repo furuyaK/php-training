@@ -1,8 +1,8 @@
 <?php
 
 /*
-	Java基礎Lesson02
-	配列dataを逐次決定法で昇順にソートして結果を出力するプログラム
+	Java基礎Lesson03
+	配列dataを隣接交換法で昇順にソートして結果を出力するプログラム
 */
 
 
@@ -19,20 +19,34 @@ echo "《ソート前の配列内の値を出力》<br />";
 printArray($aData, 1);
 
 
-/* 逐次決定法で昇順ソート */
+/* 隣接交換法で昇順ソート */
 echo "<br />《昇順ソート開始》<br />";
-// 配列のサイズ-1回繰り返し
-for ($i=0; $i < $iDataSize; $i++) {
 
-	for ($j=$i+1; $j < $iDataSize; $j++) {
+// 配列のサイズ-2回繰り返し
+for ($i=0; $i < $iDataSize-1; $i++) {
+
+	// 値入れ替えフラグ：入れ替え無し
+	$bChengeFlg = false;
+		
+	for ($j=0; $j < $iDataSize-$i-1; $j++) {
 	
 		// 値の入れ替えが必要な場合
-		if ($aData[$i] > $aData[$j]) {
+		if ($aData[$j] > $aData[$j+1]) {
 		
-			$tmp = $aData[$i];
-			$aData[$i] = $aData[$j];
-			$aData[$j] = $tmp;
+			$tmp = $aData[$j];
+			$aData[$j] = $aData[$j+1];
+			$aData[$j+1] = $tmp;
+			
+			// 値入れ替えフラグ：入れ替えあり
+			$bChengeFlg = true;
 		}
+	}
+	
+	// 値入れ替えが行われなかった場合
+	if ($bChengeFlg == false) {
+	
+		// ソート処理を終了
+		break;
 	}
 }
 echo "《昇順ソート終了》<br />";
