@@ -23,27 +23,27 @@ printArray($aData, 1);
 echo "<br />《昇順ソート開始》<br />";
 
 // 配列のサイズ-2回繰り返し
-for ($i=0; $i < $iDataSize-1; $i++) {
+for ( $i = 0; $i < $iDataSize - 1; $i++ ) {
 
 	// 値入れ替えフラグ：入れ替え無し
-	$bChengeFlg = false;
+	$bIsChengeFlg = false;
 		
-	for ($j=0; $j < $iDataSize-$i-1; $j++) {
+	for ( $j = 0; $j < $iDataSize - $i - 1; $j++ ) {
 	
 		// 値の入れ替えが必要な場合
-		if ($aData[$j] > $aData[$j+1]) {
+		if ( $aData[$j] > $aData[$j+1] ) {
 		
 			$tmp = $aData[$j];
 			$aData[$j] = $aData[$j+1];
 			$aData[$j+1] = $tmp;
 			
 			// 値入れ替えフラグ：入れ替えあり
-			$bChengeFlg = true;
+			$bIsChengeFlg = true;
 		}
 	}
 	
 	// 値入れ替えが行われなかった場合
-	if ($bChengeFlg == false) {
+	if ( $bIsChengeFlg == false ) {
 	
 		// ソート処理を終了
 		break;
@@ -66,10 +66,10 @@ printArray($aData, 1);
  */
 function printArray($aData, $iPrintType) {
 	
-	switch ($iPrintType) {
+	switch ( $iPrintType ) {
 		case 0:
-			foreach ($aData as $number) {
-				echo $number."<br />";
+			foreach ( $aData as $number ) {
+				echo $number . "<br />";
 			}
 			break;
 		case 1:

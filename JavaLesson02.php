@@ -22,18 +22,30 @@ printArray($aData, 1);
 /* 逐次決定法で昇順ソート */
 echo "<br />《昇順ソート開始》<br />";
 // 配列のサイズ-1回繰り返し
-for ($i=0; $i < $iDataSize; $i++) {
+for ( $i = 0; $i < $iDataSize; $i++ ) {
 
-	for ($j=$i+1; $j < $iDataSize; $j++) {
+	// 最小値の配列位置保持用変数
+	$iMin = $i;
+
+	for ( $j = $i + 1; $j < $iDataSize; $j++ ) {
 	
-		// 値の入れ替えが必要な場合
-		if ($aData[$i] > $aData[$j]) {
+		// 小さな値が見つかった場合
+		if ( $aData[$iMin] > $aData[$j] ) {
 		
-			$tmp = $aData[$i];
-			$aData[$i] = $aData[$j];
-			$aData[$j] = $tmp;
+			// 最小値の配列位置保持用変数を更新
+			$iMin = $j;
 		}
 	}
+	
+	// 値の入れ替えが必要な場合
+	if ( $iMin != $i ) {
+	
+		// 値の入れ替えを実施
+		$tmp = $aData[$i];
+		$aData[$i] = $aData[$iMin];
+		$aData[$iMin] = $tmp;
+	}
+
 }
 echo "《昇順ソート終了》<br />";
 
@@ -52,10 +64,10 @@ printArray($aData, 1);
  */
 function printArray($aData, $iPrintType) {
 	
-	switch ($iPrintType) {
+	switch ( $iPrintType ) {
 		case 0:
-			foreach ($aData as $number) {
-				echo $number."<br />";
+			foreach ( $aData as $number ) {
+				echo $number . "<br />";
 			}
 			break;
 		case 1:
