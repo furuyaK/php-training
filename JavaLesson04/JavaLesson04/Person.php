@@ -1,0 +1,139 @@
+<?php
+
+/**
+ *  Java基礎Lesson04<br>
+ * 個人クラス(Person)を作成し、<br>
+ * Personに登録した情報をPersonクラスのprintメソッドで出力するプログラム
+ * 
+ * @author furuyaK
+ * @since PHP 7.0.13
+ */
+
+/**
+ * 個人クラス(Person)
+ */
+class Person {
+    /**
+     * 氏名
+     * @var String
+     */
+    private $name;
+    /**
+     * 住所
+     * @var String
+     */
+    private $address;
+    /**
+     * 年齢
+     * @var int
+     */
+    private $age;
+    /**
+     * 電話番号
+     * @var String
+     */
+    private $telephone;
+
+    /**
+     * 個人の情報を登録するコンストラクタ
+     * @param String name 氏名
+     * @param String $address 住所
+     * @param int $age 年齢
+     * @param String $telephone 電話番号
+     */
+    function __construct(String $name, String $address, int $age, String $telephone) {
+         // 12/17対面レビューにて、setterの動作を確認
+        // $this->name = $name;
+        // $this->address = $address;
+        // $this->age = $age;
+        // $this->telephone = $telephone;
+
+        $this->setName($name);
+        $this->setAddress($address);
+        $this->setAge($age);
+        $this->setTelephone($telephone);
+    }
+
+	/**
+     * 氏名を設定する
+     * @param String $name 氏名
+     */
+    public function setName(String $name) {
+        $this->name = $name;
+    }
+    
+	/**
+     * 氏名を取得する
+     * @return String $name 氏名
+     */
+    public function getName() {
+        return $this->name;
+    }
+
+	/**
+     * 住所を設定する
+     * @param String $address 住所
+     */
+    public function setAddress(String $address) {
+        $this->address = $address;
+    }
+    
+	/**
+     * 住所を取得する
+     * @return String $name 住所
+     */
+    public function getAddress() {
+        return $this->address;
+    }
+
+	/**
+     * 年齢を設定する
+     * @param int $age 年齢
+     */
+    public function setAge(int $age) {
+        $this->age = $age;
+    }
+    
+	/**
+     * 年齢を取得する
+     * @return int $age 年齢
+     */
+    public function getAge() {
+        return $this->age;
+    }
+
+	/**
+     * 電話番号を設定する
+     * @param String $telephone 電話番号
+     */
+    public function setTelephone(String $telephone) {
+        $this->telephone = $telephone;
+    }
+    
+	/**
+     * 電話番号を取得する
+     * @return String $telephone 電話番号
+     */
+    public function getTelephone() {
+        return $this->telephone;
+    }
+
+ 	/**
+     * 登録した情報を出力する
+     */
+    public function print() {
+        // 12/17対面レビューにて、getterの動作を確認
+        // print("氏名：$this->name<br />");
+        // print("住所：$this->address<br />");
+        // print("年齢：$this->age<br />");
+        // print("電話番号：$this->telephone<br />");
+
+        print("氏名：" . $this->getName() . "<br />");
+        print("住所：" . $this->getAddress() . "<br />");
+        print("年齢：" . $this->getAge() . "<br />");
+        print("電話番号：" . $this->getTelephone() . "<br />");
+
+        print("<br />");
+    }   
+}
+
